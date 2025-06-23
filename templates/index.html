@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phúc lợi công ty</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding-top: 50px; }
+        .form-box { border: 1px solid #ccc; padding: 20px; display: inline-block; border-radius: 10px; }
+        img { max-width: 200px; }
+    </style>
+</head>
+<body>
+    {% if selected == "all" %}
+        <h2>Xác nhận thành công!</h2>
+        <p>Bạn đã chọn tất.</p>
+        <img src="{{ url_for('static', filename='tat.jpg') }}" alt="Tất">
+    {% else %}
+        <form method="POST" class="form-box">
+            <h3>Phúc lợi bạn muốn nhận tại công ty?</h3>
+            <label><input type="radio" name="benefit" value="travel"> Đi du lịch nước ngoài</label><br>
+            <label><input type="radio" name="benefit" value="leave"> +5 ngày nghỉ phép có lương</label><br>
+            <label><input type="radio" name="benefit" value="lunch"> Bao cơm trưa, xăng xe, cà phê</label><br>
+            <label><input type="radio" name="benefit" value="all"> Chọn tất</label><br><br>
+            <button type="submit">Xác nhận</button>
+        </form>
+    {% endif %}
+</body>
+</html>
